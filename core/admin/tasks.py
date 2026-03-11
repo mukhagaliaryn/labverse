@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.utils.html import format_html
 from django_summernote.admin import SummernoteModelAdmin, SummernoteModelAdminMixin
 
-from core.forms.subjects import TheoryAdminForm
+from core.forms.subjects import TheoryAdminForm, QuestionAdminForm, OptionAdminForm
 from core.models import Task, Question, Option, Video, Simulator, Theory
 
 
@@ -27,11 +27,12 @@ class VideoTab(SummernoteModelAdminMixin, admin.TabularInline):
 
 
 # Question Tab
-class QuestionTab(SummernoteModelAdminMixin, admin.TabularInline):
+class QuestionTab(admin.TabularInline):
     model = Question
     fields = ('order', 'text', 'question_type', 'view_link', )
     extra = 0
     readonly_fields = ('view_link', )
+    form = QuestionAdminForm
 
     def view_link(self, obj):
         if obj.pk:
@@ -77,10 +78,11 @@ class TaskAdmin(admin.ModelAdmin):
 # Task type:Test admin
 # ----------------------------------------------------------------------------------------------------------------------
 # Option Tab
-class OptionTab(SummernoteModelAdminMixin, admin.TabularInline):
+class OptionTab(admin.TabularInline):
     model = Option
     fields = ('text', 'is_correct', )
     extra = 0
+    form = OptionAdminForm
 
 
 # Question Admin

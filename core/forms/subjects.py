@@ -1,6 +1,6 @@
 from ckeditor.widgets import CKEditorWidget
 from django import forms
-from core.models import Subject, Lesson, Task, Theory
+from core.models import Subject, Lesson, Task, Theory, Question, Option
 
 
 # SubjectAdminForm
@@ -31,4 +31,22 @@ class TheoryAdminForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'content': CKEditorWidget(config_name='default'),
+        }
+
+
+class QuestionAdminForm(forms.ModelForm):
+    class Meta:
+        model = Question
+        fields = '__all__'
+        widgets = {
+            'text': CKEditorWidget(config_name='default'),
+        }
+
+
+class OptionAdminForm(forms.ModelForm):
+    class Meta:
+        model = Option
+        fields = '__all__'
+        widgets = {
+            'text': CKEditorWidget(config_name='default'),
         }
