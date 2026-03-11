@@ -87,9 +87,10 @@ class OptionTab(admin.TabularInline):
 
 # Question Admin
 @admin.register(Question)
-class QuestionAdmin(SummernoteModelAdmin):
+class QuestionAdmin(admin.ModelAdmin):
     readonly_fields = ('task_link', )
     inlines = (OptionTab, )
+    form = QuestionAdminForm
 
     def task_link(self, obj):
         if obj.task:
