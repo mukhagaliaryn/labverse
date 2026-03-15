@@ -238,7 +238,6 @@ def user_subject_detail_view(request, user_subject_id):
                     'id': user_task.id,
                     'task_type': user_task.task.task_type,
                     'task_type_display': user_task.task.get_task_type_display(),
-                    'description': user_task.task.description,
                     'rating': user_task.rating,
                     'max_rating': user_task.task.rating,
                     'percentage': float(user_task.percentage or 0),

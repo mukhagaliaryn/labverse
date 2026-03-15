@@ -15,9 +15,11 @@
                         <h1 class="text-xl md:text-2xl font-bold text-foreground">
                             Тапсырмалар бөлімі
                         </h1>
-                        <p class="text-sm text-muted">
-                            Сабақ ішіндегі тапсырмалар реті мен орындалу барысы
-                        </p>
+                        <a 
+                            href="{% url 'user_lesson' user_subject.id user_chapter.id user_lesson.id %}"
+                            class="inline-flex items-center gap-2 px-1">
+                            <span class="font-semibold underline text-primary-600">{{ user_lesson.lesson.title }}</span>
+                        </a>
                     </div>
 
                     <div class="flex flex-wrap items-center gap-2 text-sm">
