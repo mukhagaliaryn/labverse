@@ -593,9 +593,6 @@
                                                                                     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                                                                                         <div class="grid gap-2">
                                                                                             <h5 class="font-semibold">Симулятор {{ forloop.counter }}</h5>
-                                                                                            <p class="text-sm text-muted">
-                                                                                                URL: {{ sim_item.simulator.url }}
-                                                                                            </p>
                                                                                         </div>
 
                                                                                         {% if sim_item.is_completed %}
@@ -607,6 +604,14 @@
                                                                                                 Орындалмаған
                                                                                             </span>
                                                                                         {% endif %}
+                                                                                    </div>
+                                                                                    <div class="simulator-frame aspect-video bg-white">
+                                                                                        <iframe
+                                                                                            src="{{ us.simulator.url }}"
+                                                                                            class="w-full h-full"
+                                                                                            style="border:0;"
+                                                                                            allowfullscreen
+                                                                                        ></iframe>
                                                                                     </div>
                                                                                 </div>
                                                                             {% empty %}
